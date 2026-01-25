@@ -1,0 +1,11 @@
+[package]
+name = "not_enough_asserts"
+version = "0.1.0"
+edition = "2024"
+description = "A collection of asserts that I found useful."
+license = "MIT"
+homepage = "https://github.com/alordash/not_enough_asserts"
+repository = "https://github.com/alordash/not_enough_asserts"
+readme = "README.md"
+
+[dependencies]
