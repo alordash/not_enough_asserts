@@ -1,13 +1,28 @@
 use crate::panics::silent_unwind_catcher::catch_unwind_silent;
 use std::panic;
 
+/// Expects given closure to panic and returns panic message.
+/// Closure's panic message must be either `String` or `&str`.
+///
+/// # Examples
+/// ```
+/// use not_enough_asserts::panics::record_panic;
+///
+/// let error_msg = record_panic(|| panic!("hello world!"));
+/// assert_eq!("hello world!", error_msg);
+/// ```
 pub fn record_panic<T>(callback: impl FnOnce() -> T) -> String {
     let panic_error = catch_unwind_silent(panic::AssertUnwindSafe(callback));
     if let Some(actual_error) = panic_error.err().as_deref() {
-        let error_message = actual_error
-            .downcast_ref::<String>()
-            .expect("Panic's error should be string.");
-        return error_message.clone();
+        let error_message = match (
+            actual_error.downcast_ref::<&str>(),
+            actual_error.downcast_ref::<String>(),
+        ) {
+            (Some(str), _) => (*str).to_owned(),
+            (None, Some(string)) => string.clone(),
+            _ => panic!("Panic's error should be string."),
+        };
+        return error_message;
     } else {
         panic!("Expected to panic.");
     }
@@ -21,12 +36,24 @@ mod tests {
     use std::panic::panic_any;
 
     #[test]
-    fn record_panic_Panics_Ok() {
+    fn record_panic_PanicsStrRef_Ok() {
         // Arrange
         let error_msg = "quo vadis";
 
         // Act
-        let actual_error_msg = record_panic(|| panic!("{error_msg}"));
+        let actual_error_msg = record_panic(|| panic_any(error_msg));
+
+        // Assert
+        assert_eq!(error_msg, actual_error_msg)
+    }
+
+    #[test]
+    fn record_panic_PanicsString_Ok() {
+        // Arrange
+        let error_msg = "quo vadis";
+
+        // Act
+        let actual_error_msg = record_panic(|| panic_any(String::from(error_msg)));
 
         // Assert
         assert_eq!(error_msg, actual_error_msg)

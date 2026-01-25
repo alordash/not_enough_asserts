@@ -1,12 +1,25 @@
 use crate::panics::silent_unwind_catcher::catch_unwind_silent;
 use std::panic;
 
+/// Expects given closure to panic and verifies it's panic message.
+/// Closure's panic message must be either `String` or `&str`.
+/// 
+/// # Examples
+/// ```
+/// use not_enough_asserts::panics::assert_panics;
+/// assert_panics(|| panic!("hello world"), "hello world");
+/// ```
 pub fn assert_panics<T>(callback: impl FnOnce() -> T, expected_error_message: impl AsRef<str>) {
     let panic_error = catch_unwind_silent(panic::AssertUnwindSafe(callback));
     if let Some(actual_error) = panic_error.err().as_deref() {
-        let actual_error_message = actual_error
-            .downcast_ref::<String>()
-            .expect("Panic's error should be string.");
+        let actual_error_message = match (
+            actual_error.downcast_ref::<String>(),
+            actual_error.downcast_ref::<&str>(),
+        ) {
+            (Some(string), _) => string.clone(),
+            (None, Some(str)) => (*str).to_owned(),
+            _ => panic!("Panic's error should be string."),
+        };
         let expected_error_message_str = expected_error_message.as_ref();
         if expected_error_message_str != actual_error_message {
             panic!(
@@ -34,13 +47,23 @@ mod tests {
     use std::panic::panic_any;
 
     #[test]
-    fn assert_panics_Panics_Ok() {
+    fn assert_panics_PanicsStrRef_Ok() {
         // Arrange
         let error_msg = "quo vadis";
 
         // Act
         // Assert
-        assert_panics(|| panic!("{error_msg}"), error_msg);
+        assert_panics(|| panic_any(error_msg), error_msg);
+    }
+
+    #[test]
+    fn assert_panics_PanicsString_Ok() {
+        // Arrange
+        let error_msg = "quo vadis";
+
+        // Act
+        // Assert
+        assert_panics(|| panic_any(String::from(error_msg)), error_msg);
     }
 
     #[test]
