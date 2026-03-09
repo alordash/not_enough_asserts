@@ -86,7 +86,7 @@ mod tests {
 
         // Assert
         let expected_error_msg = format!(
-            "Wrong panic message.
+            "Wrong panic message:
 — Expected 
 {expected_error_msg}
 —— Actual —
