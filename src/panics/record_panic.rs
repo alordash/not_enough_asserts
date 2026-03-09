@@ -15,8 +15,8 @@ use crate::panics::panic_error_msg_extraction::extract_panic_error_msg;
 pub fn record_panic<T>(callback: impl FnOnce() -> T) -> String {
     let panic_error = catch_unwind_silent(panic::AssertUnwindSafe(callback));
     if let Some(actual_error) = panic_error.err().as_deref() {
-        let actual_error_message = extract_panic_error_msg(actual_error);
-        return actual_error_message;
+        let actual_error_msg = extract_panic_error_msg(actual_error);
+        return actual_error_msg;
     } else {
         panic!("Expected to panic.");
     }
