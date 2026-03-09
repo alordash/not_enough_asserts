@@ -1,8 +1,8 @@
 [package]
 name = "not_enough_asserts"
-version = "0.1.1"
+version = "1.0.0"
 edition = "2024"
-description = "A collection of asserts that I found useful."
+description = "A collection of useful asserts."
 license = "MIT"
 homepage = "https://github.com/alordash/not_enough_asserts"
 repository = "https://github.com/alordash/not_enough_asserts"

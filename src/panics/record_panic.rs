@@ -1,5 +1,6 @@
-use crate::panics::silent_unwind_catcher::catch_unwind_silent;
+use crate::panics::silent_unwind_catching::catch_unwind_silent;
 use std::panic;
+use crate::panics::panic_error_msg_extraction::extract_panic_error_msg;
 
 /// Expects given closure to panic and returns panic message.
 /// Closure's panic message must be either `String` or `&str`.
@@ -14,15 +15,8 @@ use std::panic;
 pub fn record_panic<T>(callback: impl FnOnce() -> T) -> String {
     let panic_error = catch_unwind_silent(panic::AssertUnwindSafe(callback));
     if let Some(actual_error) = panic_error.err().as_deref() {
-        let error_message = match (
-            actual_error.downcast_ref::<&str>(),
-            actual_error.downcast_ref::<String>(),
-        ) {
-            (Some(str), _) => (*str).to_owned(),
-            (None, Some(string)) => string.clone(),
-            _ => panic!("Panic's error should be string."),
-        };
-        return error_message;
+        let actual_error_message = extract_panic_error_msg(actual_error);
+        return actual_error_message;
     } else {
         panic!("Expected to panic.");
     }
@@ -68,7 +62,7 @@ mod tests {
     }
 
     #[test]
-    #[should_panic(expected = "Panic's error should be string.")]
+    #[should_panic(expected = "Panic's error should be either `String` or `&str`.")]
     fn record_panic_PanicErrorIsNotString_ExpectsString() {
         // Arrange
         // Act
