@@ -71,7 +71,7 @@ mod tests {
             "Expected to panic with following error message:
 {error_msg}"
         );
-        assert_eq!(expected_error_msg, actual_error_msg);
+        assert_eq!(Some(expected_error_msg), actual_error_msg);
     }
 
     #[test]
@@ -93,7 +93,7 @@ mod tests {
 {unexpected_error_msg}
 ———————————"
         );
-        assert_eq!(expected_error_msg, actual_error_msg);
+        assert_eq!(Some(expected_error_msg), actual_error_msg);
     }
 
     #[test]

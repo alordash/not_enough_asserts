@@ -2,24 +2,21 @@ use crate::panics::silent_unwind_catching::catch_unwind_silent;
 use std::panic;
 use crate::panics::panic_error_msg_extraction::extract_panic_error_msg;
 
-/// Expects given closure to panic and returns panic message.
-/// Closure's panic message must be either `String` or `&str`.
+/// Returns panic message from given closure if it panics, otherwise returns `None`.
+/// Closure's panic message must be either `String` or `&str`, otherwise downcasting will cause
+/// another panic that won't be caught by this method.
 ///
 /// # Examples
 /// ```
 /// use not_enough_asserts::panics::record_panic;
 ///
 /// let error_msg = record_panic(|| panic!("hello world!"));
-/// assert_eq!("hello world!", error_msg);
+/// assert_eq!(Some("hello world!".to_owned()), error_msg);
 /// ```
-pub fn record_panic<T>(callback: impl FnOnce() -> T) -> String {
+pub fn record_panic<T>(callback: impl FnOnce() -> T) -> Option<String> {
     let panic_error = catch_unwind_silent(panic::AssertUnwindSafe(callback));
-    if let Some(actual_error) = panic_error.err().as_deref() {
-        let actual_error_msg = extract_panic_error_msg(actual_error);
-        return actual_error_msg;
-    } else {
-        panic!("Expected to panic.");
-    }
+    let actual_error_msg = panic_error.err().as_deref().map(extract_panic_error_msg);
+    return actual_error_msg;
 }
 
 #[cfg(test)]
@@ -38,27 +35,29 @@ mod tests {
         let actual_error_msg = record_panic(|| panic_any(error_msg));
 
         // Assert
-        assert_eq!(error_msg, actual_error_msg)
+        assert_eq!(Some(error_msg.to_owned()), actual_error_msg);
     }
 
     #[test]
     fn record_panic_PanicsString_Ok() {
         // Arrange
-        let error_msg = "quo vadis";
+        let error_msg = "quo vadis".to_owned();
 
         // Act
-        let actual_error_msg = record_panic(|| panic_any(String::from(error_msg)));
+        let actual_error_msg = record_panic(|| panic_any(error_msg.clone()));
 
         // Assert
-        assert_eq!(error_msg, actual_error_msg)
+        assert_eq!(Some(error_msg), actual_error_msg)
     }
 
     #[test]
-    #[should_panic(expected = "Expected to panic.")]
-    fn record_panic_DoesNotPanic_ExpectsToPanic() {
+    fn record_panic_DoesNotPanic_ReturnsNone() {
         // Arrange
         // Act
-        record_panic(|| ());
+        let error_msg = record_panic(|| ());
+        
+        // Assert
+        assert!(error_msg.is_none());
     }
 
     #[test]
