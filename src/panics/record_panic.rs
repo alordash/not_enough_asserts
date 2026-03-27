@@ -8,7 +8,7 @@ use std::panic;
 ///
 /// # Examples
 /// ```
-/// use not_enough_asserts::panics::record_panic;
+/// use not_enough_asserts::record_panic;
 ///
 /// let error_msg = record_panic(|| panic!("hello world!"));
 /// assert_eq!(Some("hello world!".to_owned()), error_msg);

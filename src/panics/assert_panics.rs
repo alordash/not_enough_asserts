@@ -8,7 +8,7 @@ use std::panic;
 ///
 /// # Examples
 /// ```
-/// use not_enough_asserts::panics::assert_panics;
+/// use not_enough_asserts::assert_panics;
 /// assert_panics(|| panic!("hello world"), "hello world");
 /// ```
 pub fn assert_panics<T>(callback: impl FnOnce() -> T, expected_error_msg: impl AsRef<str>) {

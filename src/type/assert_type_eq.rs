@@ -11,7 +11,7 @@
 ///
 /// Failing assertion.
 /// ```
-/// use not_enough_asserts::prelude::*;
+/// use not_enough_asserts::*;
 /// use core::any::TypeId;
 ///
 /// let expected_error_msg = format!(
