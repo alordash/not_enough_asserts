@@ -12,11 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb362f9c-e4a8-4197-84a1-0238651a9aa5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/type/assert_type_eq.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/type/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/panics/assert_panics.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/panics/assert_panics.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/panics/record_panic.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/panics/record_panic.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,10 +44,12 @@
   "keyToString": {
     "Cargo.Doctest of panics::record_panic::record_panic (line 9).executor": "Run",
     "Cargo.Test assert_panics::tests.executor": "Run",
+    "Cargo.Test assert_type_eq::tests.executor": "Run",
     "Cargo.Test not_enough_asserts.executor": "Run",
     "Cargo.Test panics::assert_panics::tests::assert_panics_PanicsStrRef_Ok.executor": "Run",
     "Cargo.Test panics::assert_panics::tests::assert_panics_PanicsString_Ok.executor": "Run",
     "Cargo.Test panics::assert_panics::tests::assert_panics_PanicsWithDifferentErrorMessage_ExpectsCorrectErrorMessage.executor": "Run",
+    "Cargo.Test r#type::assert_type_eq::tests::assert_type_eq_SameTypes_Ok.executor": "Run",
     "Cargo.Test record_panic::tests.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -73,7 +74,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Cargo.Doctest of panics::record_panic::record_panic (line 9)">
+  <component name="RunManager" selected="Cargo.Test assert_type_eq::tests">
     <configuration name="Doctest of panics::record_panic::record_panic (line 9)" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package not_enough_asserts --doc &quot;panics::record_panic::record_panic\ (line\ 9)&quot;" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -108,6 +109,23 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test assert_type_eq::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package not_enough_asserts --lib r#type::assert_type_eq::tests" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test not_enough_asserts" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="command" value="test --workspace" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -125,25 +143,8 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test panics::assert_panics::tests::assert_panics_PanicsStrRef_Ok" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package not_enough_asserts --lib panics::assert_panics::tests::assert_panics_PanicsStrRef_Ok -- --exact" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test panics::assert_panics::tests::assert_panics_PanicsWithDifferentErrorMessage_ExpectsCorrectErrorMessage" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package not_enough_asserts --lib panics::assert_panics::tests::assert_panics_PanicsWithDifferentErrorMessage_ExpectsCorrectErrorMessage -- --exact" />
+    <configuration name="Test r#type::assert_type_eq::tests::assert_type_eq_SameTypes_Ok" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package not_enough_asserts --lib r#type::assert_type_eq::tests::assert_type_eq_SameTypes_Ok -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
       <option name="emulateTerminal" value="true" />
@@ -178,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Test assert_type_eq::tests" />
+        <item itemvalue="Cargo.Test r#type::assert_type_eq::tests::assert_type_eq_SameTypes_Ok" />
         <item itemvalue="Cargo.Doctest of panics::record_panic::record_panic (line 9)" />
         <item itemvalue="Cargo.Test record_panic::tests" />
         <item itemvalue="Cargo.Test assert_panics::tests" />
-        <item itemvalue="Cargo.Test panics::assert_panics::tests::assert_panics_PanicsWithDifferentErrorMessage_ExpectsCorrectErrorMessage" />
-        <item itemvalue="Cargo.Test panics::assert_panics::tests::assert_panics_PanicsStrRef_Ok" />
       </list>
     </recent_temporary>
   </component>
@@ -201,7 +202,8 @@
       <workItem from="1773046370941" duration="623000" />
       <workItem from="1773047005521" duration="1707000" />
       <workItem from="1773049372299" duration="2523000" />
-      <workItem from="1774440592121" duration="312000" />
+      <workItem from="1774440592121" duration="710000" />
+      <workItem from="1774599531879" duration="417000" />
     </task>
     <servers />
   </component>

@@ -22,7 +22,6 @@ pub fn record_panic<T>(callback: impl FnOnce() -> T) -> Option<String> {
 #[cfg(test)]
 mod tests {
     #![allow(non_snake_case)]
-
     use super::*;
     use std::panic::panic_any;
 
