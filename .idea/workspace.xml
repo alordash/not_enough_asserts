@@ -12,18 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb362f9c-e4a8-4197-84a1-0238651a9aa5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/type/value_type_id.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/panics/assert_panics.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/panics/assert_panics.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/panics/error_msg_formatting.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/panics/error_msg_formatting.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/panics/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/panics/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/panics/panic_error_msg_extraction.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/panics/panic_error_msg_extraction.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/panics/record_panic.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/panics/record_panic.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/type/assert_type_eq.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/assert_type_eq.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/type/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/mod.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,43 +37,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Cargo.Doctest of panics::record_panic::record_panic (line 9).executor": "Run",
-    "Cargo.Test assert_panics::tests.executor": "Run",
-    "Cargo.Test assert_type_eq::tests.executor": "Run",
-    "Cargo.Test not_enough_asserts.executor": "Run",
-    "Cargo.Test panics::assert_panics::tests::assert_panics_PanicsStrRef_Ok.executor": "Run",
-    "Cargo.Test panics::assert_panics::tests::assert_panics_PanicsString_Ok.executor": "Run",
-    "Cargo.Test panics::assert_panics::tests::assert_panics_PanicsWithDifferentErrorMessage_ExpectsCorrectErrorMessage.executor": "Run",
-    "Cargo.Test panics::record_panic::tests::record_panic_PanicErrorIsNotString_ExpectsString.executor": "Run",
-    "Cargo.Test r#type::assert_type_eq::tests::assert_type_eq_DifferentTypesWithSameName_Panics.executor": "Run",
-    "Cargo.Test r#type::assert_type_eq::tests::assert_type_eq_DifferentTypes_Panics.executor": "Run",
-    "Cargo.Test r#type::assert_type_eq::tests::assert_type_eq_SameTypes_Ok.executor": "Run",
-    "Cargo.Test record_panic::tests.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.rust.reset.selective.auto.import": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
-    "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
-    "org.rust.first.attach.projects": "true",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Cargo.Doctest of panics::record_panic::record_panic (line 9).executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test assert_panics::tests.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test assert_type_eq::tests.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test not_enough_asserts.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test panics::assert_panics::tests::assert_panics_PanicsStrRef_Ok.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test panics::assert_panics::tests::assert_panics_PanicsString_Ok.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test panics::assert_panics::tests::assert_panics_PanicsWithDifferentErrorMessage_ExpectsCorrectErrorMessage.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test panics::record_panic::tests::record_panic_PanicErrorIsNotString_ExpectsString.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test r#type::assert_type_eq::tests::assert_type_eq_DifferentTypesWithSameName_Panics.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test r#type::assert_type_eq::tests::assert_type_eq_DifferentTypes_Panics.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test r#type::assert_type_eq::tests::assert_type_eq_SameTypes_Ok.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test record_panic::tests.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
+    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
+    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Cargo.Test r#type::assert_type_eq::tests::assert_type_eq_DifferentTypesWithSameName_Panics">
     <configuration name="Test assert_type_eq::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package not_enough_asserts --lib r#type::assert_type_eq::tests" />
