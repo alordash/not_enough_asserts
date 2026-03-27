@@ -1,5 +1,5 @@
-const EXPECTED_SECTION_HEADER_TEXT: &'static str = " Expected ";
-const ACTUAL_SECTION_HEADER_TEXT: &'static str = " Actual ";
+const EXPECTED_SECTION_HEADER_TEXT: &'static str = " expected ";
+const ACTUAL_SECTION_HEADER_TEXT: &'static str = " actual ";
 const SECTION_SEPARATOR_CHAR: char = '—';
 
 pub(crate) fn format_error_msg(expected_error_msg: &str, actual_error_msg: String) -> String {
@@ -20,7 +20,7 @@ pub(crate) fn format_error_msg(expected_error_msg: &str, actual_error_msg: Strin
         .take(maximum_msg_line_length)
         .collect();
     let result = format!(
-        "Wrong panic message:
+        "panic message assertion failed
 {expected_section_header}
 {expected_error_msg}
 {actual_section_header}

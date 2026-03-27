@@ -1,6 +1,6 @@
-mod silent_unwind_catching;
-mod panic_error_msg_extraction;
 mod error_msg_formatting;
+mod panic_error_msg_extraction;
+mod silent_unwind_catching;
 
 mod assert_panics;
 mod record_panic;

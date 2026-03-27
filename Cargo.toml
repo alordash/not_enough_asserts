@@ -9,3 +9,4 @@ repository = "https://github.com/alordash/not_enough_asserts"
 readme = "README.md"
 
 [dependencies]
+typeid = "1.0.3"

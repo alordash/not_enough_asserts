@@ -23,7 +23,7 @@ pub fn assert_panics<T>(callback: impl FnOnce() -> T, expected_error_msg: impl A
         assert_eq!(expected_error_msg.as_ref(), actual_error_msg);
     } else {
         panic!(
-            "Expected to panic with following error message:
+            "expected to panic with error message:
 {}",
             expected_error_msg.as_ref()
         );
@@ -67,7 +67,7 @@ mod tests {
 
         // Act
         let expected_error_msg = format!(
-            "Expected to panic with following error message:
+            "expected to panic with error message:
 {error_msg}"
         );
         assert_eq!(Some(expected_error_msg), actual_error_msg);
@@ -85,10 +85,10 @@ mod tests {
 
         // Assert
         let expected_error_msg = format!(
-            "Wrong panic message:
-— Expected 
+            "panic message assertion failed
+— expected 
 {expected_error_msg}
-—— Actual —
+—— actual —
 {unexpected_error_msg}
 ———————————"
         );
@@ -96,7 +96,7 @@ mod tests {
     }
 
     #[test]
-    #[should_panic(expected = "Panic's error should be either `String` or `&str`.")]
+    #[should_panic(expected = "caught panic with error that is not `String` or `&str`")]
     fn record_panic_PanicErrorIsNotString_ExpectsString() {
         // Arrange
         // Act

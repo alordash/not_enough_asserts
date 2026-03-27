@@ -1,6 +1,6 @@
+use crate::panics::panic_error_msg_extraction::extract_panic_error_msg;
 use crate::panics::silent_unwind_catching::catch_unwind_silent;
 use std::panic;
-use crate::panics::panic_error_msg_extraction::extract_panic_error_msg;
 
 /// Returns panic message from given closure if it panics, otherwise returns `None`.
 /// Closure's panic message must be either `String` or `&str`, otherwise downcasting will cause
@@ -54,13 +54,13 @@ mod tests {
         // Arrange
         // Act
         let error_msg = record_panic(|| ());
-        
+
         // Assert
         assert!(error_msg.is_none());
     }
 
     #[test]
-    #[should_panic(expected = "Panic's error should be either `String` or `&str`.")]
+    #[should_panic(expected = "caught panic with error that is not `String` or `&str`")]
     fn record_panic_PanicErrorIsNotString_ExpectsString() {
         // Arrange
         // Act
