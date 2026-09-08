@@ -1,7 +1,4 @@
-pub mod panics;
-pub mod r#type;
+mod panics;
+mod r#type;
 
-pub mod prelude {
-    pub use crate::assert_type_eq;
-    pub use crate::panics::*;
-}
+pub use crate::panics::*;
