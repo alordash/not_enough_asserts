@@ -1,9 +1,9 @@
-const EXPECTED_SECTION_HEADER_TEXT: &'static str = " expected ";
-const ACTUAL_SECTION_HEADER_TEXT: &'static str = " actual ";
+const EXPECTED_SECTION_HEADER_TEXT: &str = " expected ";
+const ACTUAL_SECTION_HEADER_TEXT: &str = " actual ";
 const SECTION_SEPARATOR_CHAR: char = '—';
 
 pub(crate) fn format_error_msg(expected_error_msg: &str, actual_error_msg: String) -> String {
-    let maximum_msg_line_length = get_maximum_string_line_length(&expected_error_msg)
+    let maximum_msg_line_length = get_maximum_string_line_length(expected_error_msg)
         .max(get_maximum_string_line_length(&actual_error_msg));
 
     let expected_section_header = surround_string_with_char(
@@ -16,9 +16,8 @@ pub(crate) fn format_error_msg(expected_error_msg: &str, actual_error_msg: Strin
         SECTION_SEPARATOR_CHAR,
         maximum_msg_line_length,
     );
-    let last_separator: String = core::iter::repeat(SECTION_SEPARATOR_CHAR)
-        .take(maximum_msg_line_length)
-        .collect();
+    let last_separator: String =
+        core::iter::repeat_n(SECTION_SEPARATOR_CHAR, maximum_msg_line_length).collect();
     let result = format!(
         "panic message assertion failed
 {expected_section_header}
@@ -40,7 +39,7 @@ fn surround_string_with_char(str: &str, char: char, result_string_length: usize)
     };
     let right_chars_length = chars_count / 2;
     let left_chars_length = chars_count - right_chars_length;
-    let left_chars: String = core::iter::repeat(char).take(left_chars_length).collect();
-    let right_chars: String = core::iter::repeat(char).take(right_chars_length).collect();
+    let left_chars: String = core::iter::repeat_n(char, left_chars_length).collect();
+    let right_chars: String = core::iter::repeat_n(char, right_chars_length).collect();
     return left_chars + str + &right_chars;
 }

@@ -56,7 +56,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Setup MSRV lock file
-        run: cp Cargo.lock.msrv Cargo.lock
+        run: cp Cargo.lock.msrv.msrv Cargo.lock.msrv
       - name: build
         run: cargo build
 
