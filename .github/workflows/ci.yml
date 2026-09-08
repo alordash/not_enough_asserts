@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     name: MSRV
     container:
-      image: rust:1.88.0
+      image: rust:1.85.1
     steps:
       - uses: actions/checkout@v6
       - name: Setup MSRV lock file
@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Code format
     container:
-      image: rust:1.88.0
+      image: rust:1.85.1
     steps:
       - uses: actions/checkout@v6
       - name: cargo-fmt
