@@ -1,4 +1,4 @@
-//! Library for convenient assertions in Rust tests. 
+//! Library for convenient assertions in Rust tests.
 mod panics;
 mod r#type;
 
