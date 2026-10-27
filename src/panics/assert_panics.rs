@@ -1,6 +1,6 @@
 use crate::panics::error_msg_formatting::format_error_msg;
 use crate::panics::panic_error_msg_extraction::extract_panic_error_msg;
-use crate::panics::silent_unwind_catching::catch_unwind_silent;
+use crate::panics::silent_unwind::catch;
 use std::panic;
 
 /// Expects given closure to panic and verifies it's panic message.
@@ -12,7 +12,7 @@ use std::panic;
 /// assert_panics(|| panic!("hello world"), "hello world");
 /// ```
 pub fn assert_panics<T>(callback: impl FnOnce() -> T, expected_error_msg: impl AsRef<str>) {
-    let panic_error = catch_unwind_silent(panic::AssertUnwindSafe(callback));
+    let panic_error = catch(panic::AssertUnwindSafe(callback));
     if let Some(actual_error) = panic_error.err().as_deref() {
         let actual_error_msg = extract_panic_error_msg(actual_error);
         let expected_error_msg_str = expected_error_msg.as_ref();

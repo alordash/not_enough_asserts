@@ -1,5 +1,5 @@
 use crate::panics::panic_error_msg_extraction::extract_panic_error_msg;
-use crate::panics::silent_unwind_catching::catch_unwind_silent;
+use crate::panics::silent_unwind::catch;
 use std::panic;
 
 /// Returns panic message from given closure if it panics, otherwise returns `None`.
@@ -14,7 +14,7 @@ use std::panic;
 /// assert_eq!(Some("hello world!".to_owned()), error_msg);
 /// ```
 pub fn record_panic<T>(callback: impl FnOnce() -> T) -> Option<String> {
-    let panic_error = catch_unwind_silent(panic::AssertUnwindSafe(callback));
+    let panic_error = catch(panic::AssertUnwindSafe(callback));
     let actual_error_msg = panic_error.err().as_deref().map(extract_panic_error_msg);
     return actual_error_msg;
 }
