@@ -28,7 +28,6 @@ mod internal {
     fn global_hook(p: &panic::PanicHookInfo) {
         LOCAL_HOOK.with(|x| {
             let maybe_local_hook = x.borrow();
-            dbg!(maybe_local_hook.is_some());
             maybe_local_hook.as_ref().unwrap_or(&*DEFAULT_HOOK)(p);
         });
     }
